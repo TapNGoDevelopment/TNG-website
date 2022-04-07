@@ -93,6 +93,8 @@ app.post('/send_enquiry', function(request, response) {
 });
 
 
+port=process.env.port||3000;
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
