@@ -21,7 +21,26 @@ app.use(session({
 	saveUninitialized: true
 }));
 
+const handlebarOptions = {
+    viewEngine: {
+        partialsDir: path.resolve('./views/'),
+        defaultLayout: false,
+    },
+    viewPath: path.resolve('./views/'),
+   
+};
 
+var transporter = nodemailer.createTransport(
+    {
+        service: Constants.SMTP_SERVER,
+        auth:{
+            user: Constants.SMTP_EMAIL,
+            pass: Constants.SMTP_PASSWORD
+        }
+    }
+);
+
+// admin side
 
 app.get('/super-user/login', (req, res) => {
     res.render('admin/login', { title: 'Login'});
@@ -35,8 +54,6 @@ app.get('/super-user/contents', (req, res) => {
     res.render('admin/contents', { title: 'Contents'});
 });
 
-
-
 app.get('/super-user/contact', (req, res) => {
     res.render('admin/contact', { title: 'Contents'});
 });
@@ -45,29 +62,88 @@ app.get('/super-user/testimonial', (req, res) => {
     res.render('admin/testimonial', { title: 'Contents'});
 });
 
-var transporter = nodemailer.createTransport(
-    {
-        service: Constants.SMTP_SERVER,
-        auth:{
-            user: Constants.SMTP_EMAIL,
-            pass: Constants.SMTP_PASSWORD
-        }
-    }
-);
+app.get('/super-user/testimonial_list', function(request, response) {
+    var query = 'SELECT * FROM testimonial_old';
+    db.query(query, (err, rows, fields) => {
+        if (!err)
+           
+            response.render('admin/testimonial_list', { title: 'Testimonial', contact: rows});
+        else
+            console.log(err);
+    })
 
-// point to the template folder
-const handlebarOptions = {
-    viewEngine: {
-        partialsDir: path.resolve('./views/'),
-        defaultLayout: false,
-    },
-    viewPath: path.resolve('./views/'),
-   
-};
+});
+
+  app.post('/testimonial', function(request, response) {
+    var name = request.body.Name;
+    var company_name = request.body.company_name;
+    var client_since = request.body.client_since;
+    var message = request.body.Message;
+
+    var sql = `INSERT INTO testimonial_old (Name, company_name, Client_since, Message) VALUES ("${name}", "${company_name}", "${client_since}", "${message}")`;
+    db.query(sql, function(err, result) {
+      if (err) throw err;
+      console.log('record inserted');
+      response.redirect('back');
+      response.end();
+    });
+  });
+
+app.get('/view', function(request, response) {
+    var query = 'SELECT * FROM contact';
+    db.query(query, (err, rows, fields) => {
+        if (!err)
+           
+            response.render('admin1/view', { title: 'Dashboard', contact: rows});
+        else
+            console.log(err);
+    })
+
+});
+
+// update testimonial details
+
+app.get('/admin/edit-form/:id', function(req, response) {
+    var id = req.params.id;
+    var sql = `SELECT * FROM testimonial_old WHERE id=${id}`;
+    db.query(sql, function(err, rows, fields) {
+        response.render('admin/testimonial', {title: 'Edit Product', product: rows[0]});
+    });
+  });
+
+  app.post('/edit/:id', function(request, response) {
+    var id = request.params.id;
+    var Name = request.body.Name;
+    var company_name  = request.body.company_name;
+    var Client_since = request.body.Client_since;
+    var Message = request.body.Message;
+  
+    var sql = `UPDATE testimonial_old SET Name="${Name}", company_name="${company_name}", Client_since="${Client_since}", Message="${Message}" WHERE id=${id}`;
+  
+    db.query(sql, function(err, result) {
+      if (err) throw err;
+      console.log('record updated!');
+      response.redirect('/super-user/testimonial_list');
+    });
+  });
+
+  // delete testimonial details
+
+  app.get('/delete/:id', function(request, response){
+    var id = request.params.id;
+    console.log(id);
+    var sql = `DELETE FROM testimonial_old WHERE id=${id}`;
+  
+    db.query(sql, function(err, result) {
+      if (err) throw err;
+      console.log('record deleted!');
+      response.redirect('/super-user/testimonial_list');
+    });
+  });
 
 
 
-// use a template file with nodemailer
+  // client side 
 transporter.use('compile', hbs(handlebarOptions))
 app.get('/', (req, res) => { //get requests to the root ("/") will route here
    
@@ -91,9 +167,7 @@ app.get('/support', (req, res) => {
     res.render('admin1/support', { title: 'Home'});
 });
 
-// app.get('/view', (req, res) => {
-//     res.render('admin/view', { title: 'Home'});
-// });
+
 
 app.post('/send', function(request, response) {
     var phone = request.body.phone;
@@ -111,74 +185,8 @@ app.post('/send', function(request, response) {
     });
   });
 
-  app.get('/super-user/testimonial_list', function(request, response) {
-    var query = 'SELECT * FROM testimonial';
-    db.query(query, (err, rows, fields) => {
-        if (!err)
-           
-            response.render('admin/testimonial_list', { title: 'Testimonial', contact: rows});
-        else
-            console.log(err);
-    })
-
-});
-
-  app.post('/testimonial', function(request, response) {
-    var name = request.body.Name;
-    var company_name = request.body.company_name;
-    var client_since = request.body.client_since;
-    var message = request.body.Message;
-
-    var sql = `INSERT INTO testimonial (Name, company_name, Client_since, Message) VALUES ("${name}", "${company_name}", "${client_since}", "${message}")`;
-    db.query(sql, function(err, result) {
-      if (err) throw err;
-      console.log('record inserted');
-      response.redirect('back');
-      response.end();
-    });
-  });
-
-app.get('/view', function(request, response) {
-    var query = 'SELECT * FROM contact';
-    db.query(query, (err, rows, fields) => {
-        if (!err)
-           
-            response.render('admin1/view', { title: 'Dashboard', contact: rows});
-        else
-            console.log(err);
-    })
-
-});
-
-// update contact details
-
-
-app.get('/edit-form/:id', function(request, response) {
-    var id = req.params.id;
-    var sql = `SELECT * FROM contact WHERE id=${id}`;
-    db.query(sql, function(err, rows, fields) {
-        response.render('editform', {title: 'Edit Product', product: rows[0]});
-    });
-  });
-
-  app.post('/edit/:id', function(request, response) {
-    var phone = request.body.phone;
-    var email = request.body.email;
-    var heading = request.body.heading;
-    var main_heading = request.body.main_heading;
-    var small_heading = request.body.small_heading;
-    var sql = `UPDATE contact SET phone="${phone}", email="${email}", heading="${heading}", main_heading="${main_heading}", small_heading="${small_heading}" WHERE id=${id}`;
-  
-    db.query(sql, function(err, result) {
-      if (err) throw err;
-      console.log('record updated!');
-      response.redirect('/view');
-    });
-  });
-
 app.post('/send_enquiry', function(request, response) {
 
-   
         var first_name = request.body.first_name;
         var last_name = request.body.last_name;
         var email = request.body.email;
@@ -226,3 +234,4 @@ app.post('/send_enquiry', function(request, response) {
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
+
