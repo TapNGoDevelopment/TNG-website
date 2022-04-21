@@ -48,8 +48,9 @@
                         <td><%= data.Client_since %></td>
                         <td><%= data.Message %></td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-info"><i class="bi bi-pencil"></i></button>
-                            <button type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+               
+                            <a href="/admin/edit-form/<%= data.id %>" type="button" class="btn-sm btn-info"><i class="bi bi-pencil"></i></a>
+                            <a  href="/delete/<%= data.id %>" type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
                         </td>
                       </tr>
                       <% i++ }) } %>
