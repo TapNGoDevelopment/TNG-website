@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+//const port = 3000;
 var dateTime = require('node-datetime');
 var dt = dateTime.create();
 const hbs = require('nodemailer-express-handlebars');
@@ -235,3 +235,7 @@ app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
 
+const port = process.env.port || 3000; 
+app.listen(port, ()=>{
+    console.log("We are running at Done 3000 ");
+});
