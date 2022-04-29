@@ -16,6 +16,7 @@
         "express-session": "^1.17.2",
         "grapesjs": "^0.18.4",
         "grapesjs-preset-webpage": "^0.1.11",
+        "md5": "^2.3.0",
         "mongodb": "^4.3.1",
         "morgan": "^1.10.0",
         "mysql": "^2.18.1",

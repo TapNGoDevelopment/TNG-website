@@ -14,15 +14,8 @@
 	<div>
 		<div class="container">
 			<div class="row">
-
-				<div class="mb-20 main-section">
-					<div class="col-md-10">
-						<p class="main-section">Contact Us</p>
-					</div>
-					<div class="col-md-12">
-						<h1> We Would Be Happy To Meet You</br> And Learn All About Your Business </h1>
-					</div>
-					<div class="col-md-10">Call Us, Write Us, Or Knock On Our Door</div>
+                <div class="mb-20 main-section">
+					<%- contactData[0].main_heading %>
 				</div>
 
 			</div>
@@ -284,29 +277,16 @@
                 <div class="my_contact">
                     <div class="row mb-20 contact-info contact-top">
                         <div class="col-md-3"> Call Us: </div>
-                        <div class="col-md-9">0413 242 224</div>
+                        <div class="col-md-9"><%= contactData[0].phone_no %></div>
                     </div>
                     </br>
                     <div class="row contact-info">
                         <div class="col-md-3">Email Us:</div>
-                        <div class="col-md-9"> info@tapngosolutions.com.au</div>
+                        <div class="col-md-9"><%= contactData[0].email %></div>
                     </div>
                     </br>
-                    <div class="row contact-info">
-                        <div class="col-md-12">Office Visiting Hours:</div>
-                    </div></br>
-                    <div class="row contact-info">
-                        <div class="col-md-12">Monday - Thursday: 9 AM - 5 PM</div>
-                    </div>
-                    <div class="row contact-info">
-                        <div class="col-md-12">Friday - Saturday: 10AM - 3PM</div>
-                    </div>
-                    <div class="row contact-info">
-                        <div class="col-md-12">Sunday: Closed</div>
-                    </div>
+                    <%- contactData[0].office_details %>
                 </div>
-                
-
             </div>
         </div>
     </div>

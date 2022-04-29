@@ -265,7 +265,7 @@ p.copyright_text {
     top:30%;
 } */
 .banner_text h2{
-    font-size:100px;
+    font-size:90px;
     line-height:1.02;
     font-weight:700;
     font-family: sohne-var, "Helvetica Neue", Arial, sans-serif;
@@ -1992,4 +1992,11 @@ div#contact_form_section {
     margin-top: -940px;
     height: 995px;}
     .developer_section .row .col-lg-6{padding-top:50px;}
+}
+
+.img-responsive{
+  max-width: 100%;
+  width: 200px;
+  min-height: 100px;
+  max-height: 100px;
 }

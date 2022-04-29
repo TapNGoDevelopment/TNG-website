@@ -5,52 +5,46 @@
 </head>
 
 <body>
-
-    <%- include('layout/menu') %>
+ <%- include('layout/menu') %>
   <!-- ======= Sidebar ======= -->
   <%- include('layout/sidebar') %>
     <!-- End Sidebar-->
 
     <main id="main" class="main">
-
-        <div class="pagetitle">
-          <h1>Contact Us</h1>
-         
-        </div><!-- End Page Title -->
+     
+       
         <section class="section">
             <div class="row">
-                <div class="col-3"></div>
-            <div class="col-6">
+                
+            <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title">New Contact</h5>
+                      <h5 class="card-title">Contact Us</h5>
         
                       <!-- Vertical Form -->
-                      <form class="row g-3" action="/send" method="post">
+                      <form id="formContactDetails" method="post" onsubmit="return false;">
                         <div class="col-12">
-                          <label for="inputNanme4" class="form-label">Phone Number</label>
-                          <input type="text" name="phone" class="form-control" required>
+                          <label for="main_heading" class="form-label">Main Heading</label>
+                          <textarea class="tinymce-editor" name="main_heading" id="main_heading"><%= contactData[0].main_heading %></textarea>
+                        </div>
+                        <div class="row">
+                        <div class="col-6">
+                          <label for="phone_no" class="form-label">Phone Number</label>
+                          <input type="text" name="phone_no" id="phone_no" class="form-control" value="<%= contactData[0].phone_no %>" required>
+                        </div>
+                        <div class="col-6">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" name="email" id="email" class="form-control" value="<%= contactData[0].email %>" required>
+                        </div>
                         </div>
                         <div class="col-12">
-                          <label for="inputEmail4" class="form-label">Email</label>
-                          <input type="text" name="email" class="form-control" required>
+                          <label for="office_details" class="form-label">Office Visiting Hours</label>
+                          <textarea class="tinymce-editor" name="office_details" id="office_details"><%= contactData[0].office_details %></textarea>
                         </div>
-                        
-                        <div class="col-12">
-                          <label for="inputAddress" class="form-label">Heading</label>
-                          <input type="text" name="heading" class="form-control" required>
-                        </div>
-                        <div class="col-12">
-                          <label for="inputAddress" class="form-label">Main Heading</label>
-                          <textarea rows="5" cols="40" name="main_heading" class="form-control" required></textarea>
-                        </div>
-                        <div class="col-12">
-                          <label for="inputAddress" class="form-label">Small_heading </label>
-                          <input type="text" name="small_heading" class="form-control" required>
-                        </div>
-                        <div class="text-center">
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                          <button type="reset" class="btn btn-secondary">Reset</button>
+                        <div class="col-12 text-center">
+                          <div class="form-group">
+                          <button type="submit" class="btn btn-primary">Update</button>
+                          </div>
                         </div>
                       </form><!-- Vertical Form -->
         
@@ -63,8 +57,6 @@
 
   <!-- ======= Footer ======= -->
   <%- include('layout/footer') %>
-
- 
+  <script src="/admin-theme/js/contact_us.js"></script>
 </body>
-
 </html>
