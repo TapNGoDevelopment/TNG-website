@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <%- include('layout/comman_menu') %>
+</head>
+
+<body>
+
+    <%- include('layout/menu') %>
+  <!-- ======= Sidebar ======= -->
+  <%- include('layout/sidebar') %>
+    <!-- End Sidebar-->
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+          <h1>Page Contents</h1>
+         
+        </div><!-- End Page Title -->
+    
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-12">
+    
+              <div class="card">
+                <div class="card-body">
+                
+                  <!-- Table with stripped rows -->
+                  <table class="table datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col"> Name</th>
+                        <th scope="col">Company_Name</th>
+                        <th scope="col">Client_since</th>
+                        <th scope="col">Message</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <% if(contact.length!=0){
+                          var i = 1;
+                          contact.forEach(function(data){ %>
+                        <th scope="row"><%= i %></th>
+                        <td><%= data.Name %></td>
+                        <td><%= data.company_name %></td>
+                        <td><%= data.Client_since %></td>
+                        <td><%= data.Message %></td>
+                        <td>
+               
+                            <a href="/admin/edit-form/<%= data.id %>" type="button" class="btn-sm btn-info"><i class="bi bi-pencil"></i></a>
+                            <a  href="/delete/<%= data.id %>" type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+                        </td>
+                      </tr>
+                      <% i++ }) } %>
+                    
+                    </tbody>
+                  </table>
+                  <!-- End Table with stripped rows -->
+    
+                </div>
+              </div>
+    
+            </div>
+          </div>
+        </section>
+    
+      </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <%- include('layout/footer') %>
+
+ 
+</body>
+
+</html>

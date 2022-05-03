@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <%- include('layout/comman_menu') %>
+</head>
+
+<body>
+
+    <%- include('layout/menu') %>
+  <!-- ======= Sidebar ======= -->
+  <%- include('layout/sidebar') %>
+    <!-- End Sidebar-->
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+          <h1>Contact Us</h1>
+         
+        </div><!-- End Page Title -->
+        <section class="section">
+            <div class="row">
+                <div class="col-3"></div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">New Contact</h5>
+        
+                      <!-- Vertical Form -->
+                      <form class="row g-3" action="/send" method="post">
+                        <div class="col-12">
+                          <label for="inputNanme4" class="form-label">Phone Number</label>
+                          <input type="text" name="phone" class="form-control" required>
+                        </div>
+                        <div class="col-12">
+                          <label for="inputEmail4" class="form-label">Email</label>
+                          <input type="text" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="col-12">
+                          <label for="inputAddress" class="form-label">Heading</label>
+                          <input type="text" name="heading" class="form-control" required>
+                        </div>
+                        <div class="col-12">
+                          <label for="inputAddress" class="form-label">Main Heading</label>
+                          <textarea rows="5" cols="40" name="main_heading" class="form-control" required></textarea>
+                        </div>
+                        <div class="col-12">
+                          <label for="inputAddress" class="form-label">Small_heading </label>
+                          <input type="text" name="small_heading" class="form-control" required>
+                        </div>
+                        <div class="text-center">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="reset" class="btn btn-secondary">Reset</button>
+                        </div>
+                      </form><!-- Vertical Form -->
+        
+                    </div>
+                  </div>
+            </div>
+            </div>
+        </section>
+      </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <%- include('layout/footer') %>
+
+ 
+</body>
+
+</html>
