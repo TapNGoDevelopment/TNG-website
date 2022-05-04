@@ -199,7 +199,7 @@ app.get('/super-user/contact', (req, res) => {
 
 app.get('/super-user/testimonial', (req, res) => {
     if (req.session.loggedin) {
-        res.render('admin/testimonial', { title: 'Contents'});
+        res.render('admin/testimonial', { title: 'Contents',product:[]});
     }else{
         res.redirect("/super-user/login");
     }
