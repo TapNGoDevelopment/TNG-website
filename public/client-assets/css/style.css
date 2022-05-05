@@ -2000,3 +2000,10 @@ div#contact_form_section {
   min-height: 100px;
   max-height: 100px;
 }
+
+.testimonial_section .text a{
+  position:unset;
+  cursor:pointer;
+}
+.testimonial_section .item{height:420px;}
+@media(max-width:1127px){.owl-nav{margin-top:430px !important;}} 

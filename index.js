@@ -220,7 +220,7 @@ app.get('/super-user/testimonial_list', function(request, response) {
     }
 });
 
-  app.post('/testimonial', function(request, response) {
+app.post('/testimonial', function(request, response) {
     if (request.session.loggedin) {
         var name = request.body.Name;
         var company_name = request.body.company_name;
@@ -294,7 +294,7 @@ app.get('/admin/edit-form/:id', function(req, response) {
 
 
 
-  // client side 
+// client side 
 transporter.use('compile', hbs(handlebarOptions))
 app.get('/', async(req, res) => { //get requests to the root ("/") will route here
     var getLogo = 'SELECT * FROM home_logo';
