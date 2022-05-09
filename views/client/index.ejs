@@ -21,6 +21,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
           integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css"
+		integrity="sha512-yJHCxhu8pTR7P2UgXFrHvLMniOAL5ET1f5Cj+/dzl+JIlGTh5Cz+IeklcXzMavKvXP8vXqKMQyZjscjf3ZDfGA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
         <script src="//unpkg.com/grapesjs"></script>
       
     </head>
@@ -31,13 +37,11 @@
     <!-- section one-->
     <br>  <br>   <br>   <br>   <br> <br> <br>
     <div class="banner_section">
-        <div class="container banner_text">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-5">
-                    <h2 class="text1">
-                        <%- homeContent[0].main_title %>
-                    </h2> <br />
+                <div class="col-lg-7">
                     
+                    <%- homeContent[0].main_title %>
                     <%- homeContent[0].second_heading %>
                    
                     <div class="get_started1">
@@ -52,8 +56,8 @@
                     </div>
                 </div>
                 <!-- <br /><br /><br /> -->
-                <div class="col-lg-1 col2"></div>
-                <div class="col-lg-6 col2" style="right:-80px;">
+               
+                <div class="col-lg-5 col2" style="right:-80px;">
                     <div class="chart-container home_chart">
                         <img src="home_images/<%=homeContent[0].main_image %>" alt="">
                     </div>
@@ -181,18 +185,24 @@
                 </div>
                 <div class="col-lg-6 col2" style="right:10px;">
                     <div class="chart-container">
-                        <img src="images/code.PNG" height="" alt="">
+                        <img src="client-assets/images/vpos1.png" height="550px" alt="">
                     </div>
                 </div>
+
+                
 
             </div>
         </div>
 
         <div id="developer_stripes"></div>
+        
     </div>
+    
     <!-- END SECTION -->
     <!-- WHY STRIPE SECTION-->
+    
     <div class="container why_stripe">
+       
         <div class="row">
             <div class="main-content">
                 <p>Why Stripe</p>
@@ -251,12 +261,7 @@
     <!-- END SECTION -->
     <!-- GLOBE SECTION -->
     <div class="globe_section">
-        <div id="globe_stripes">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -271,6 +276,11 @@
                             For ambitious companies around the world, Stripe makes moving money as simple, borderless, and programmable as the rest of the internet. Our teams are based in dozens of offices around the world and we process hundreds of billions of dollars each year for <a>startups to large enterprises.</a>
                         </p>
 
+                    </div>
+                </div>
+                <div class="col-lg-6 col2" style="right:10px;">
+                    <div class="chart-container">
+                        <img src="client-assets/images/vpos2.png" height="450px" alt="" style="margin-top:60px;">
                     </div>
                 </div>
 
