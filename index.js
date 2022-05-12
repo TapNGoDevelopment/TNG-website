@@ -128,13 +128,11 @@ app.post('/super-user/homepage/update', upload.single('main_image'), (req, res, 
     var fourth_heading= req.body.fourth_heading;
     var five_heading= req.body.five_heading;
     var six_heading= req.body.six_heading;
-    var sevent_heading= req.body.five_heading;
-    var eight_heading= req.body.six_heading;
     const file = req.file
-    var sendData = { main_title: main_title,second_heading: second_heading,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading,sevent_heading:sevent_heading,eight_heading:eight_heading};
+    var sendData = { main_title: main_title,second_heading: second_heading,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading};
     if (file) {
         console.log(file);
-        var sendData = { main_title: main_title,second_heading: second_heading,main_image:file.filename,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading,sevent_heading:sevent_heading,eight_heading:eight_heading};
+        var sendData = { main_title: main_title,second_heading: second_heading,main_image:file.filename,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading};
     }
  
     db.query('UPDATE home_page SET ? WHERE id = ?', [sendData, 1], function(err, result) {
