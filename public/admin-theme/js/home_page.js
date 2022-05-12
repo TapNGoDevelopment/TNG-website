@@ -10,8 +10,7 @@ $(document).ready(function(){
 		var fourth_heading= tinymce.get("fourth_heading").getContent();
 		var five_heading= tinymce.get("five_heading").getContent();
 		var six_heading= tinymce.get("six_heading").getContent();
-		var sevent_heading= tinymce.get("sevent_heading").getContent();
-		var eight_heading= tinymce.get("eight_heading").getContent();
+		
 		formData.append('main_title', main_title);
 		formData.append('second_heading', second_heading);
 		formData.append('main_image', $('#formFile')[0].files[0]);
@@ -19,8 +18,7 @@ $(document).ready(function(){
 		formData.append('fourth_heading', fourth_heading);
 		formData.append('five_heading', five_heading);
 		formData.append('six_heading', six_heading);
-		formData.append('sevent_heading', sevent_heading);
-		formData.append('eight_heading', eight_heading);
+		
 		$(".mask_loader").show();
 		$.ajax({
 				url: '/super-user/homepage/update',
