@@ -101,6 +101,15 @@ app.get('/super-user/home-page', async(req, res) => {
     res.render('admin/home_page', { title: 'Home Page','homeContent':homeContent});
 });
 
+app.get('/super-user/about_us', async(req, res) => {
+    const homeContent = await new Promise((resolve) => {
+       db.query('SELECT * FROM home_page WHERE id=1', (err, res) => {
+         resolve(res)
+       })
+   })
+   res.render('admin/home_page', { title: 'Home Page','AboutContent':AboutContent});
+});
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'public/home_images')
@@ -121,6 +130,7 @@ filename: function (req, file, cb) {
 var upload = multer({ storage: storage })
 var uploadLogo = multer({ storage: storageLogo })
 
+// use for about us page as well
 app.post('/super-user/homepage/update', upload.single('main_image'), (req, res, next) => {
     var main_title = req.body.main_title;
     var second_heading = req.body.second_heading;
@@ -128,18 +138,19 @@ app.post('/super-user/homepage/update', upload.single('main_image'), (req, res, 
     var fourth_heading= req.body.fourth_heading;
     var five_heading= req.body.five_heading;
     var six_heading= req.body.six_heading;
+    var section_4_heading=req.body.section_4_heading;
     const file = req.file
-    var sendData = { main_title: main_title,second_heading: second_heading,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading};
+    var sendData = { main_title: main_title,second_heading: second_heading,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading, section_4_heading:section_4_heading};
     if (file) {
         console.log(file);
-        var sendData = { main_title: main_title,second_heading: second_heading,main_image:file.filename,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading};
+        var sendData = { main_title: main_title,second_heading: second_heading,main_image:file.filename,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading,section_4_heading:section_4_heading};
     }
  
     db.query('UPDATE home_page SET ? WHERE id = ?', [sendData, 1], function(err, result) {
         if (err) throw err;
         res.send("Yes");
       });
-});
+});A
 
 app.get('/super-user/home-logo-section', async(req, res) => {
     const homeLogo = await new Promise((resolve) => {
@@ -179,13 +190,6 @@ app.get('/super-user/dashboard', (req, res) => {
     }
 });
 
-app.get('/super-user/contents', (req, res) => {
-    if (req.session.loggedin) {
-        res.render('admin/contents', { title: 'Contents'});
-    }else{
-        res.redirect("/super-user/login");
-    }
-});
 
 app.get('/super-user/contact', (req, res) => {
     if (req.session.loggedin) {
