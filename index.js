@@ -139,11 +139,19 @@ app.post('/super-user/homepage/update', upload.single('main_image'), (req, res, 
     var five_heading= req.body.five_heading;
     var six_heading= req.body.six_heading;
     var section_4_heading=req.body.section_4_heading;
+    var sub_4_1_heading=req.body.sub_4_1_heading;
+    var sub_4_1_details=req.body.sub_4_1_details;
+    var sub_4_2_heading=req.body.sub_4_2_heading;
+    var sub_4_2_details=req.body.sub_4_2_details;
+    var sub_4_3_heading=req.body.sub_4_3_heading;
+    var sub_4_3_details=req.body.sub_4_3_details;
+    var sub_4_4_heading=req.body.sub_4_4_heading;
+    var sub_4_4_details=req.body.sub_4_4_details;
     const file = req.file
-    var sendData = { main_title: main_title,second_heading: second_heading,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading, section_4_heading:section_4_heading};
+    var sendData = { main_title: main_title,second_heading: second_heading,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading, section_4_heading:section_4_heading, sub_4_1_heading:sub_4_1_heading, sub_4_1_details:sub_4_1_details,sub_4_2_heading:sub_4_2_heading, sub_4_2_details:sub_4_2_details,sub_4_3_heading:sub_4_3_heading, sub_4_3_details:sub_4_3_details,sub_4_4_heading:sub_4_4_heading, sub_4_4_details:sub_4_4_details};
     if (file) {
         console.log(file);
-        var sendData = { main_title: main_title,second_heading: second_heading,main_image:file.filename,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading,section_4_heading:section_4_heading};
+        var sendData = { main_title: main_title,second_heading: second_heading,main_image:file.filename,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading,section_4_heading:section_4_heading,sub_4_1_heading:sub_4_1_heading,sub_4_1_details:sub_4_1_details,sub_4_3_heading:sub_4_3_heading, sub_4_3_details:sub_4_3_details,sub_4_4_heading:sub_4_4_heading, sub_4_4_details:sub_4_4_details};
     }
  
     db.query('UPDATE home_page SET ? WHERE id = ?', [sendData, 1], function(err, result) {

@@ -11,6 +11,14 @@ $(document).ready(function(){
 		var five_heading= tinymce.get("five_heading").getContent();
 		var six_heading= tinymce.get("six_heading").getContent();
 		var section_4_heading= tinymce.get("section_4_heading").getContent();
+		var sub_4_1_heading=tinymce.get("sub_4_1_heading").getContent();
+		var sub_4_1_details=tinymce.get("sub_4_1_details").getContent();
+		var sub_4_2_heading=tinymce.get("sub_4_2_heading").getContent();
+		var sub_4_2_details=tinymce.get("sub_4_2_details").getContent();
+		var sub_4_3_heading=tinymce.get("sub_4_3_heading").getContent();
+		var sub_4_3_details=tinymce.get("sub_4_3_details").getContent();
+		var sub_4_4_heading=tinymce.get("sub_4_4_heading").getContent();
+		var sub_4_4_details=tinymce.get("sub_4_4_details").getContent();
 		
 		formData.append('main_title', main_title);
 		formData.append('second_heading', second_heading);
@@ -20,6 +28,14 @@ $(document).ready(function(){
 		formData.append('five_heading', five_heading);
 		formData.append('six_heading', six_heading);
 		formData.append('section_4_heading', section_4_heading);
+		formData.append('sub_4_1_heading', sub_4_1_heading);
+		formData.append('sub_4_1_details', sub_4_1_details);
+		formData.append('sub_4_2_heading', sub_4_2_heading);
+		formData.append('sub_4_2_details', sub_4_2_details);
+		formData.append('sub_4_3_heading', sub_4_3_heading);
+		formData.append('sub_4_3_details', sub_4_3_details);
+		formData.append('sub_4_4_heading', sub_4_4_heading);
+		formData.append('sub_4_4_details', sub_4_4_details);
 		$(".mask_loader").show();
 		$.ajax({
 				url: '/super-user/homepage/update',
