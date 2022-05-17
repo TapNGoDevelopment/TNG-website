@@ -150,7 +150,7 @@ app.post('/super-user/homepage/update', upload.single('main_image'), (req, res, 
         if (err) throw err;
         res.send("Yes");
       });
-});A
+});
 
 app.get('/super-user/home-logo-section', async(req, res) => {
     const homeLogo = await new Promise((resolve) => {
