@@ -19,6 +19,11 @@ $(document).ready(function(){
 		var sub_4_3_details=tinymce.get("sub_4_3_details").getContent();
 		var sub_4_4_heading=tinymce.get("sub_4_4_heading").getContent();
 		var sub_4_4_details=tinymce.get("sub_4_4_details").getContent();
+		var sub_3_1_heading=tinymce.get("sub_3_1_heading").getContent();
+		var sub_3_1_details=tinymce.get("sub_3_1_details").getContent();
+		var sub_3_2_heading=tinymce.get("sub_3_2_heading").getContent();
+		var sub_3_2_details=tinymce.get("sub_3_2_details").getContent();
+
 		
 		formData.append('main_title', main_title);
 		formData.append('second_heading', second_heading);
@@ -36,6 +41,12 @@ $(document).ready(function(){
 		formData.append('sub_4_3_details', sub_4_3_details);
 		formData.append('sub_4_4_heading', sub_4_4_heading);
 		formData.append('sub_4_4_details', sub_4_4_details);
+		formData.append('sub_3_1_heading', sub_3_1_heading);
+		formData.append('sub_3_1_details', sub_3_1_details);
+		formData.append('sub_3_2_heading', sub_3_1_heading);
+		formData.append('sub_3_2_details', sub_3_1_details);
+		
+
 		$(".mask_loader").show();
 		$.ajax({
 				url: '/super-user/homepage/update',

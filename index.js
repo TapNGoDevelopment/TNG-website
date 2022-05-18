@@ -147,11 +147,19 @@ app.post('/super-user/homepage/update', upload.single('main_image'), (req, res, 
     var sub_4_3_details=req.body.sub_4_3_details;
     var sub_4_4_heading=req.body.sub_4_4_heading;
     var sub_4_4_details=req.body.sub_4_4_details;
+    var business=req.body.business;
+    var sold=req.body.sold;
+    var transaction=req.body.transaction;
+    var support=req.body.support;
+    var sub_3_1_heading= req.body.sub_3_1_heading;
+    var sub_3_1_details=req.body.sub_3_1_details;
+    var sub_3_2_heading= req.body.sub_3_2_heading;
+    var sub_3_2_details=req.body.sub_3_2_details;
     const file = req.file
-    var sendData = { main_title: main_title,second_heading: second_heading,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading, section_4_heading:section_4_heading, sub_4_1_heading:sub_4_1_heading, sub_4_1_details:sub_4_1_details,sub_4_2_heading:sub_4_2_heading, sub_4_2_details:sub_4_2_details,sub_4_3_heading:sub_4_3_heading, sub_4_3_details:sub_4_3_details,sub_4_4_heading:sub_4_4_heading, sub_4_4_details:sub_4_4_details};
+    var sendData = { main_title: main_title,second_heading: second_heading,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading, section_4_heading:section_4_heading, sub_4_1_heading:sub_4_1_heading, sub_4_1_details:sub_4_1_details,sub_4_2_heading:sub_4_2_heading, sub_4_2_details:sub_4_2_details,sub_4_3_heading:sub_4_3_heading, sub_4_3_details:sub_4_3_details,sub_4_4_heading:sub_4_4_heading, sub_4_4_details:sub_4_4_details,business:business,sold:sold,transaction:transaction,support:support,sub_3_1_heading:sub_3_1_heading,sub_3_1_details:sub_3_1_details,sub_3_2_heading:sub_3_2_heading,sub_3_2_details:sub_3_2_details};
     if (file) {
         console.log(file);
-        var sendData = { main_title: main_title,second_heading: second_heading,main_image:file.filename,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading,section_4_heading:section_4_heading,sub_4_1_heading:sub_4_1_heading,sub_4_1_details:sub_4_1_details,sub_4_3_heading:sub_4_3_heading, sub_4_3_details:sub_4_3_details,sub_4_4_heading:sub_4_4_heading, sub_4_4_details:sub_4_4_details};
+        var sendData = { main_title: main_title,second_heading: second_heading,main_image:file.filename,third_heading:third_heading,fourth_heading:fourth_heading,five_heading:five_heading,six_heading:six_heading,section_4_heading:section_4_heading,sub_4_1_heading:sub_4_1_heading,sub_4_1_details:sub_4_1_details,sub_4_3_heading:sub_4_3_heading, sub_4_3_details:sub_4_3_details,sub_4_4_heading:sub_4_4_heading, sub_4_4_details:sub_4_4_details,sub_3_1_heading:sub_3_1_heading,sub_3_1_details:sub_3_1_details,sub_3_2_heading:sub_3_2_heading,sub_3_2_details:sub_3_2_details};
     }
  
     db.query('UPDATE home_page SET ? WHERE id = ?', [sendData, 1], function(err, result) {
