@@ -560,6 +560,7 @@ p.copyright_text {
   display: grid;
   place-items: center;
   height:400px;
+  right:10px;
 }
 .home_chart img {width:100%;}
 #stripes_two {
