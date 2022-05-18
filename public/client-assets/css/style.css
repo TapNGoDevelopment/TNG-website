@@ -551,7 +551,7 @@ p.copyright_text {
 }
 .back_color{
   background: #f6f9fc;
-  height:300px;
+  height:350px;
   position:absolute;
   bottom:90px;
   width:100%;
@@ -1910,7 +1910,7 @@ div#contact_form_section {
 
 
 @media(min-width:1370px){
-  .back_color{height:550px}
+  .back_color{height:650px}
 }
 @media(min-width:1650px){
   .sub_content_2{    
@@ -1918,7 +1918,7 @@ div#contact_form_section {
     max-width: 38% !important;}
 }
 @media(min-width:1680px){
-  .back_color{height:565px}
+  .back_color{height:650px}
   #stripes_three{
     transform: skewY(-6deg);
   }
@@ -2163,7 +2163,7 @@ div#contact_form_section {
   background: var(--third)
 }
 .back_color{
-  height: 600px;
+  height: 650px;
   bottom: -180px;
 }
 .section_three .sub_content{
