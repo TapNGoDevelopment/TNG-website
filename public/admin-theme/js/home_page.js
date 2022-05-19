@@ -43,8 +43,8 @@ $(document).ready(function(){
 		formData.append('sub_4_4_details', sub_4_4_details);
 		formData.append('sub_3_1_heading', sub_3_1_heading);
 		formData.append('sub_3_1_details', sub_3_1_details);
-		formData.append('sub_3_2_heading', sub_3_1_heading);
-		formData.append('sub_3_2_details', sub_3_1_details);
+		formData.append('sub_3_2_heading', sub_3_2_heading);
+		formData.append('sub_3_2_details', sub_3_2_details);
 		
 
 		$(".mask_loader").show();
