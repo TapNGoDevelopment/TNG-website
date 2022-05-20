@@ -310,10 +310,14 @@ p.copyright_text {
   font-size:14px;
   font-weight:500;
 }
-.get_started .col_two h6 span,.get_started .col_two p,
-.why_stripe h6 span, .why_stripe p,.developer_section h6 span,.developer_section .sub_content_2 p{
+.get_started .col_two h6 span,.get_started .col_two p, .why_stripe p,.developer_section h6 span,.developer_section .sub_content_2 p{
   padding-left:1rem;
 }
+.get_started .col_two h6, .why_stripe h6 h3 strong {
+  position: relative;
+  left: 20px;
+}
+
 .get_started .start_btn,.get_started .sales_btn,.unified_platform .start_btn,
 .developer_section .start_btn,.developer_section .start_btn,.developer_section .sales_btn,.banner_text .start_btn,.banner_text .sales_btn{
   padding:10px 16px;
@@ -551,7 +555,7 @@ p.copyright_text {
 }
 .back_color{
   background: #f6f9fc;
-  height:350px;
+  height:360px;
   position:absolute;
   bottom:90px;
   width:100%;
@@ -560,7 +564,6 @@ p.copyright_text {
   display: grid;
   place-items: center;
   height:400px;
-  right:10px;
 }
 .home_chart img {width:100%;}
 #stripes_two {
